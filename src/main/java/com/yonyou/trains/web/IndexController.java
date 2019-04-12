@@ -25,8 +25,31 @@ public class IndexController implements ResponseUtil {
      */
     @ResponseBody
     @RequestMapping("/")
-    public JSONObject index(){
+    public JSONObject home(){
+       return doSearch();
+    }
 
+    /***
+     * 用户数据查询
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/user")
+    public JSONObject user(){
+        return doSearch();
+    }
+
+    /***
+     * 用户数据查询
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/index")
+    public JSONObject index(){
+        return doSearch();
+    }
+
+    private JSONObject doSearch(){
         Date begin= Calendar.getInstance().getTime();
         logger.debug("接口开始响应,开始时间{}。", begin);
         JSONObject result=new JSONObject();
